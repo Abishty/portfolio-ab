@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import styled from "styled-components";
-import { Alert, AlertTitle } from "@mui/material";
 
 const Contact = () => {
   const form = useRef();
@@ -20,12 +19,6 @@ const Contact = () => {
         (result) => {
           console.log(result.text);
           console.log("message sent");
-          return (
-            <Alert severity="success">
-              <AlertTitle>Success</AlertTitle>
-              Email has been sent successfully!!
-            </Alert>
-          );
         },
         (error) => {
           console.log(error.text);
