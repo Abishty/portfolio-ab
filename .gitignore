@@ -68,6 +68,14 @@ typings/
 # Yarn Integrity file
 .yarn-integrity
 
+#build
+build
+
+#firebase
+.firebase
+firebase.json
+.firebaserc
+
 # dotenv environment variables file
 .env
 .env.test
