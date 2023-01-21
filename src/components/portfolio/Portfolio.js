@@ -1,18 +1,29 @@
-import React from 'react';
+import React from "react";
 import PortfolioBlock from "./PortfolioBlock";
-import {Box, Grid} from "@mui/material";
-import {info} from "../../info/Info";
+import { Box, Grid } from "@mui/material";
+import { info } from "../../info/Info";
 
 export default function Portfolio() {
-    return (
-        <Box>
-            <Grid container display={'flex'} justifyContent={'center'}>
-                {info.portfolio.map((project, index) => (
-                   <Grid item xs={12} md={6} key={index}>
-                       <PortfolioBlock image={project.image} live={project.live} source={project.source} title={project.title} />
-                   </Grid>
-                ))}
+  return (
+    <Box>
+      <Grid container display={"flex"} justifyContent={"center"}>
+        {info.portfolio.length !== 0 &&
+          info.portfolio.map((project, index) => (
+            <Grid item xs={12} md={6} key={index}>
+              <PortfolioBlock
+                image={project.image}
+                live={project.live}
+                source={project.source}
+                title={project.title}
+              />
             </Grid>
-        </Box>
-    );
-};
+          ))}
+        {info.portfolio.length === 0 && (
+          <h1 style={{marginTop: '250px'}}>
+            No Projects Found.. Work In Progress!!
+          </h1>
+        )}
+      </Grid>
+    </Box>
+  );
+}
