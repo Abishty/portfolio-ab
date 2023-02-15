@@ -7,42 +7,40 @@ import {info} from "../info/Info";
 
 const links = [
     {
-        name: 'Home',
+        name: 'Bisht',
         to: '/',
-        active: 'home'
+        active: 'bisht'
     },
     {
-        name: 'Me',
-        to: '/about',
-        active: 'about'
+        name: 'Myself',
+        to: '/myself',
+        active: 'myself'
     },
     {
-        name: info.initials,
-        type: 'initials',
-        to: '/',
-        active: 'home'
-    },
-    {
-        name: 'Portfolio',
-        to: '/portfolio',
-        active: 'portfolio'
+        name: 'Projects',
+        to: '/project',
+        active: 'project'
     },
     {
         name: 'Contact',
         to: '/contact',
         active: 'contact'
-    }
+    },
+    {
+        name: 'Blogs',
+        to: '/blogs',
+        active: 'blogs'
+    },
 ]
 
 export default function Navbar({darkMode, handleClick}) {
     const location = useLocation()
-    const [active, setActive] = useState(location.pathname === '/' ? 'home' : location.pathname.slice(1, location.pathname.length));
+    const [active, setActive] = useState(location.pathname === '/' ? 'bisht' : location.pathname.slice(1, location.pathname.length));
 
     return (
         <Box component={'nav'} width={'100%'}>
             <Box component={'ul'} display={'flex'} justifyContent={'center'} alignItems={'center'}
-                 gap={{xs: '1.5rem', md: '8rem'}}
-                 textTransform={'lowercase'} fontSize={'1rem'}>
+                 gap={{xs: '1.5rem', md: '8rem'}} fontSize={'1rem'}>
                 {links.map((link, index) => (
                     <Box key={index} component={'li'} className={(link.active === active && !link.type) && Style.active}
                          sx={{borderImageSource: info.gradient}}>
